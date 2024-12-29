@@ -30,6 +30,7 @@
     video {
       width: 100%;
       height: auto;
+      visibility: hidden; /* Hide video initially */
     }
   </style>
 </head>
@@ -37,11 +38,11 @@
 
   <!-- Spoiler Message -->
   <div id="spoiler">
-    Please click this text to confirm you are not a robot.
+    Please click this text to confirm you are not a robot
   </div>
 
-  <!-- Video Element -->
-  <video id="video" autoplay muted>
+  <!-- Video Element (without autoplay) -->
+  <video id="video" muted>
     <source src="movie.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -54,6 +55,7 @@
     // Remove the spoiler message, change background, play video, and unmute audio when clicked
     spoiler.addEventListener('click', () => {
       spoiler.style.display = 'none'; // Hide the spoiler message
+      video.style.visibility = 'visible'; // Show the video
       video.muted = false; // Unmute video
       video.play(); // Play the video
       body.style.backgroundColor = 'black'; // Change background color to black
