@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video with Spoiler</title>
+  <style>
+    #spoiler {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 24px;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      z-index: 10;
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Spoiler Message -->
+  <div id="spoiler">
+    Warning: This video contains spoilers! Click to continue.
+  </div>
+
+  <!-- Video Element -->
+  <video id="video" autoplay muted>
+    <source src="your-video-url.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const spoiler = document.getElementById('spoiler');
+    const video = document.getElementById('video');
+
+    // Remove the spoiler message when the video starts
+    spoiler.addEventListener('click', () => {
+      spoiler.style.display = 'none';
+      video.muted = false; // Unmute video
+      video.play(); // Ensure video plays
+    });
+  </script>
+
+</body>
+</html>
